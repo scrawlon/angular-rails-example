@@ -9,14 +9,14 @@ module.exports = function(config) {
 
 
     // frameworks to use
-    frameworks: ['jasmine', 'ng-scenario'],
+    frameworks: ['jasmine'],
 
 
     // list of files / patterns to load in the browser
     files: [
       APPLICATION_SPEC,
       'app/assets/javascripts/angular/*/*.{coffee,js}',
-      'spec/javascripts/**/*_spec.{coffee,js}'
+      'spec/angular/unit/**/*_spec.{coffee,js}'
     ],
 
     // list of files to exclude
