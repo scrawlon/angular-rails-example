@@ -6,7 +6,23 @@
     "karma-coffee-preprocessor": "^0.2.1",
     "karma-jasmine": "0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
-    "phantomjs": "1.9.7-8"
+    "phantomjs": "1.9.7-8",
     "shelljs": "^0.2.2"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000",
+
+    "pretest": "npm install",
+    "test": "bundle exec rake karma:start",
+    "test-single-run": "bundle exec rake karma:run",
+
+    "preupdate-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update",
+
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor test/protractor-conf.js",
+
+    "update-index-async": "node -e \"require('shelljs/global'); sed('-i', /\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/, '//@@NG_LOADER_START@@\\n' + cat('app/bower_components/angular-loader/angular-loader.min.js') + '\\n//@@NG_LOADER_END@@', 'app/index-async.html');\""
   }
 }
